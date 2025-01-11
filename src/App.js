@@ -41,6 +41,10 @@ const Search =()=>{
         {videos.map ((video )=>( 
           <li key={video.id.videoId }> 
           <ReactPlayer src ={`https://www.youtube.com/watch?v=${video.id.videoId }`}/> 
+          <video 
+        src ={`https://www.youtube.com/watch?v=${video.id.videoId }`} 
+        poster ={`https://www.youtube.com/watch?v=${video.id.videoId }`} 
+      /> 
             <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
               {video.snippet.title}
             </a>
