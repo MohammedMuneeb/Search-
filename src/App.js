@@ -1,17 +1,16 @@
 import React ,{useState ,useEffect }from 'react'; 
 import axios from 'axios'; 
 
-const Search = () => {
-  const [query, setQuery] = useState('');
-  const [videos, setVideos] = useState([]);
-
+import ReactPlayer from "react-player";
+import Plyr from "plyr"; 
+const Search =()=>{ 
+  const [query ,setQuery ]=useState (''); 
+  const [videos ,setVideos ]=useState ([]); 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   }; 
-
   const handleSubmit = async (event) => {
-    event.preventDefault();
-
+    event .preventDefault (); 
     try { 
       const response =await axios.get (`https://www.googleapis.com/youtube/v3/search`, {
         params: {
@@ -29,18 +28,19 @@ const Search = () => {
   }; 
   return ( 
     <div > 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit ={handleSubmit }> 
         <input 
           type="text" 
           value={query} 
           onChange={handleInputChange} 
           placeholder="Search YouTube" 
         /> 
-        <button type="submit">Search</button>
+        <button type ="submit">Search </button > 
       </form > 
       <ul > 
         {videos.map ((video )=>( 
-          <li key={video.id.videoId}>
+          <li key={video.id.videoId }> 
+          <ReactPlayer src ={`https://www.youtube.com/watch?v=${video.id.videoId }`}/> 
             <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
               {video.snippet.title}
             </a>
