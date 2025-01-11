@@ -38,7 +38,8 @@ const Search =()=>{
         <button type ="submit">Search </button > 
       </form > 
       <ul > 
-        {videos.map ((video )=>( 
+        {videos.map ((video )=>(<> 
+          <ReactPlayer src ="SqcY0GlETPk"/> 
           <li key={video.id.videoId }> 
           <ReactPlayer src ={`https://www.youtube.com/watch?v=${video.id.videoId }`}/> 
           <video 
@@ -48,7 +49,7 @@ const Search =()=>{
             <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
               {video.snippet.title}
             </a>
-          </li>
+          </li ></ > 
         ))}
       </ul>
     </div>
